@@ -2,15 +2,6 @@
     import { onMount } from 'svelte';
     import { PUBLIC_APPLICATION_ID, PUBLIC_REST_KEY } from '$env/static/public';
 
-    console.log('Application ID:', PUBLIC_APPLICATION_ID);  // Debug
-    console.log('REST API Key:', PUBLIC_REST_KEY);  // Debug
-
-    let events = [];
-
-    <script lang="ts">
-    import { onMount } from 'svelte';
-    import { PUBLIC_APPLICATION_ID, PUBLIC_REST_KEY } from '$env/static/public';
-
     // Logging environment variables to ensure they are loaded
     console.log('Application ID:', PUBLIC_APPLICATION_ID);  
     console.log('REST API Key:', PUBLIC_REST_KEY);  
