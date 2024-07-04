@@ -20,7 +20,7 @@ const config = {
       precompress: false
     }),
     paths: {
-      base: dev ? '' : 'mahdiyaran-site/'
+      base: dev ? '' : '/mahdiyaran-site'
     }
   },
 };
