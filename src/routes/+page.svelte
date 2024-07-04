@@ -8,27 +8,31 @@
     let events = [];
 
     const fetchEvents = async () => {
-        try {
-            const response = await fetch('https://parseapi.back4app.com/classes/Events', {
-                method: 'GET',
-                headers: {
-                    'X-Parse-Application-Id': PUBLIC_APPLICATION_ID,
-                    'X-Parse-REST-API-Key': PUBLIC_REST_KEY,
-                    'Content-Type': 'application/json'
-                }
-            });
+    console.log('Attempting fetch request to Back4App');
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+        const response = await fetch('https://parseapi.back4app.com/classes/Events', {
+            method: 'GET',
+            headers: {
+                'X-Parse-Application-Id': VITE_PUBLIC_APPLICATION_ID,
+                'X-Parse-REST-API-Key': VITE_PUBLIC_REST_KEY,
+                'Content-Type': 'application/json',
+                'Origin': 'https://mahdiyaran.github.io' // Ensure this is your GitHub Pages URL
             }
+        });
 
-            const data = await response.json();
-            console.log('Fetched events:', data.results);  // Debug log
-            events = data.results;
-        } catch (error) {
-            console.error('Error fetching events:', error);  // Debug log
+        console.log('Fetch response status:', response.status); // Log status
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}, body: ${await response.text()}`);
         }
-    };
+
+        const data = await response.json();
+        console.log('Fetched events:', data.results);
+        events = data.results;
+    } catch (error) {
+        console.error('Error fetching events:', error.message);
+    }
+};
 
     onMount(() => {
         fetchEvents();
