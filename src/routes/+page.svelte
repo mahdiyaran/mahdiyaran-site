@@ -14,8 +14,8 @@
         const response = await fetch('https://parseapi.back4app.com/classes/Events', {
             method: 'GET',
             headers: {
-                'X-Parse-Application-Id': VITE_PUBLIC_APPLICATION_ID,
-                'X-Parse-REST-API-Key': VITE_PUBLIC_REST_KEY,
+                'X-Parse-Application-Id': PUBLIC_APPLICATION_ID,
+                'X-Parse-REST-API-Key': PUBLIC_REST_KEY,
                 'Content-Type': 'application/json',
                 'Origin': 'https://mahdiyaran.github.io' // Ensure this is your GitHub Pages URL
             }
